@@ -1,6 +1,6 @@
-go 1.22.0 // Go version must match the lowest supported version, not the highest, with format X.Y.
+go 1.23.0 // Go version must match the lowest supported version, not the highest, with format X.Y.
 
-toolchain go1.22
+toolchain go1.23
 
 use (
 	.
@@ -66,6 +66,7 @@ use (
 	./internal/exectracetest
 	./internal/setup-smoke-test
 	./internal/traceprof/traceproftest
+	./tools/autoreleasetagger
 	./tools/fixmodules
 	./tools/v2check
 	./tools/v2check/_stage
