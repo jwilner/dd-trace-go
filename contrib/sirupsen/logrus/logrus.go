@@ -7,6 +7,7 @@
 package logrus
 
 import (
+	"fmt"
 	"os"
 	"strconv"
 
@@ -48,6 +49,11 @@ func (d *DDContextLogHook) Fire(e *logrus.Entry) error {
 	span, found := tracer.SpanFromContext(e.Context)
 	if !found {
 		return nil
+	}
+	if cfg.log128bits {
+		fmt.Println("MIKAYLA: 128bit enabled")
+	} else {
+		fmt.Println("MIKAYLA: 128bit DISabled")
 	}
 	if cfg.log128bits && span.Context().TraceID() != tracer.TraceIDZero {
 		e.Data[ext.LogKeyTraceID] = span.Context().TraceID()
